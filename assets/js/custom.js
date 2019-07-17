@@ -12,6 +12,7 @@ $(document).ready(function() {
     $("#modal-title").html("Form Tambah Data");
     $("#tombol-simpan").show();
     $("#tombol-ubah").hide();
+    $("#form-tambah")[0].reset();
 
   }) // <== tombol tambah data end
 
@@ -61,11 +62,11 @@ $(document).ready(function() {
     //mencari tag tr terdekat
     var tr = $(this).closest("tr");
     var nis = tr.find(".nis-value").val();
-    var nama = $(".nama-value").val();
+    var nama = tr.find(".nama-value").val();
     var jenkel = tr.find(".jenis_kelamin_value").val();
     var telp   = tr.find(".telp-value").val();
     var alamat = tr.find(".alamat-value").val();
-    console.log(jenkel);
+    console.log(nama);
     $("#nis").val(nis);
     $("#nama").val(nama);
     $("#jenis_kelamin").val(jenkel);
@@ -74,7 +75,7 @@ $(document).ready(function() {
   });
 
   //ketika tombol ubah di klik maka jalankan ajax
-  
+
 
 
 })

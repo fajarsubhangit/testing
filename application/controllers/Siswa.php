@@ -46,6 +46,42 @@ class Siswa extends CI_Controller {
     echo json_encode($response,JSON_PRETTY_PRINT);
   }
 
+  //ubah data
+  public function ubah($id)
+  {
+    if($this->validation() === true)
+    {
+      sleep("3");
+      $data = array (
+        "nis" => $this->input->post("input_nis"),
+        "nama"=> $this->input->post("input_nama"),
+        "jenis_kelamin" => $this->input->post("input_jenis_kelamin"),
+        "telp" => $this->input->post("input_telp"),
+        "alamat" => $this->input->post("input_alamat")
+      );
+
+      $this->Siswa_model->update_data($id,$data);
+
+      $this->data["tabel"] = $this->Siswa_model->get_all();
+      $html = $this->load->view("siswa/tabel",$this->data,true);
+
+      $response = [
+        "status" => "sukses",
+        "pesan"  => "Data berhasil di ubah",
+        "html"   => $html
+      ];
+
+
+    }else
+    {
+      $response = [
+        "status" => "gagal",
+        "pesan"  => validation_errors()
+      ];
+    }
+    echo json_encode($response,JSON_PRETTY_PRINT);
+  }
+
   //validation
   public function validation() {
     $this->form_validation->set_rules("input_nis","Nis","required|numeric");

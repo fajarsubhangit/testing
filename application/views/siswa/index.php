@@ -105,7 +105,7 @@
 
           <!-- Loading Data ketika di ubah -->
           <div id="loading-ubah">
-            <strong>Sedang dihapus....</strong>
+            <strong>Sedang diubah....</strong>
             <img src="assets/loading.gif" alt="loading">
           </div>
 

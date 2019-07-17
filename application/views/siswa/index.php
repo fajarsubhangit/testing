@@ -152,3 +152,6 @@
   <script src="assets/js/custom.js"></script>
 </body>
 </html>
+<script type="text/javascript">
+            $("#table-view").DataTable();
+</script>

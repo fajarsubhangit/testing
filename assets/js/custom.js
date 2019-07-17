@@ -1,8 +1,6 @@
 var id;
 
 $(document).ready(function() {
-  //dataTables untuk table tabel.php
-    $("#table-view").DataTable();
 
   //sembunyikan beberapa pesan
   $("#pesan-sukses,#pesan-error,#loading-simpan,#loading-ubah").hide();
@@ -12,8 +10,6 @@ $(document).ready(function() {
     $("#modal-title").html("Form Tambah Data");
     $("#tombol-simpan").show();
     $("#tombol-ubah").hide();
-    $("#form-tambah")[0].reset();
-
   }) // <== tombol tambah data end
 
   //ketika tombol simpan di klik
@@ -38,9 +34,7 @@ $(document).ready(function() {
 
           $(".modal").hide();
           $(".modal-backdrop").hide();
-          $("#view").html(msg.html);
-          $("#form-tambah")[0].reset();
-          $("#table-view").DataTable();
+          $("#tombol-view").html(msg.html);
         }else {
           $("#loading-simpan").hide();
           $("#pesan-error").show();
@@ -66,7 +60,7 @@ $(document).ready(function() {
     var jenkel = tr.find(".jenis_kelamin_value").val();
     var telp   = tr.find(".telp-value").val();
     var alamat = tr.find(".alamat-value").val();
-    console.log(nama);
+
     $("#nis").val(nis);
     $("#nama").val(nama);
     $("#jenis_kelamin").val(jenkel);

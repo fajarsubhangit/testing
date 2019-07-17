@@ -1,3 +1,5 @@
+var id;
+
 $(document).ready(function() {
   //dataTables untuk table tabel.php
     $("#table-view").DataTable();
@@ -37,6 +39,7 @@ $(document).ready(function() {
           $(".modal-backdrop").hide();
           $("#view").html(msg.html);
           $("#form-tambah")[0].reset();
+          $("#table-view").DataTable();
         }else {
           $("#loading-simpan").hide();
           $("#pesan-error").show();
@@ -45,7 +48,7 @@ $(document).ready(function() {
       }
     });
 
-  })
+  });
 
   //ketika tombol edit di view.php di klik
   $("#table-view").on("click","#tombol-edit",function() {
@@ -53,6 +56,25 @@ $(document).ready(function() {
     $("#tombol-ubah").show();
     $("#modal-title").html("Form Ubah Data");
 
-  })
+    id = $(this).data("id");
+
+    //mencari tag tr terdekat
+    var tr = $(this).closest("tr");
+    var nis = tr.find(".nis-value").val();
+    var nama = $(".nama-value").val();
+    var jenkel = tr.find(".jenis_kelamin_value").val();
+    var telp   = tr.find(".telp-value").val();
+    var alamat = tr.find(".alamat-value").val();
+    console.log(jenkel);
+    $("#nis").val(nis);
+    $("#nama").val(nama);
+    $("#jenis_kelamin").val(jenkel);
+    $("#input_telp").val(telp);
+    $("#alamat").val(alamat);
+  });
+
+  //ketika tombol ubah di klik maka jalankan ajax
+  
+
 
 })

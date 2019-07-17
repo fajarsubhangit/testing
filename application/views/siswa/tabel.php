@@ -40,7 +40,7 @@
 
         <input type="hidden" class="nis-value" value="<?php echo $data->nis ?>">
         <input type="hidden" class="nama-value" value="<?php echo $data->nama ?>">
-        <input type="hidden" class="jenis_kelamin-value" value="<?php echo $data->jenis_kelamin ?>">
+        <input type="hidden" class="jenis_kelamin_value" value="<?php echo $data->jenis_kelamin ?>">
         <input type="hidden" class="telp-value" value="<?php echo $data->telp ?>">
         <input type="hidden" class="alamat-value" value="<?php echo $data->alamat ?>">
       </tr>
@@ -52,8 +52,3 @@
   </tbody>
 </table>
 </div>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("#table-view").DataTable();
-  })
-</script>

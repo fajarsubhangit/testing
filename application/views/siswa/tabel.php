@@ -33,7 +33,7 @@
           </button>
 
           <!-- Hapus -->
-          <button data-id="<?php echo $data->id ?>" data-target="#delete" data-toggle="modal" id="tombol-hapus" class="btn btn-danger btn-sm" title="hapus">
+          <button data-id="<?php echo $data->id ?>" data-target="#delete-modal" data-toggle="modal" id="tombol-hapus" class="btn btn-danger btn-sm" title="hapus">
             <i class="fas fa-trash"></i>
           </button>
         </td>
@@ -52,3 +52,8 @@
   </tbody>
 </table>
 </div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#table-view").DataTable();
+  })
+</script>

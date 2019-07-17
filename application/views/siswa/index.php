@@ -33,32 +33,68 @@
   </nav>
 
   <!-- PESAN SUKSES -->
-  <div class="container alert alert-success mt-3"></div>
+  <div id="pesan-sukses"></div>
 
   <!-- Menampilkan tabel dari view.php -->
-  <div id="view">
+  <div id="view" class="mt-3">
     <?php
     $this->load->view("siswa/tabel",$tabel);
      ?>
   </div>
-
-  <!-- Buat modal untuk tambah dan ubah data -->
 
   <!-- Modal FORM tambah data dan ubah data -->
   <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
           <h5 class="modal-title" id="exampleModalLabel">
             <span id="modal-title"></span>
           </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
         </div>
-        <div id="pesan-error" class="alert alert-danger"></div>
+
         <div class="modal-body">
-          ...
+          <div id="pesan-error" class="alert alert-danger alert-dismissible fade show" role="alert">
+
+          </div>
+          <form method="post" id="form-tambah">
+          <!-- NIS -->
+          <div class="form-group">
+            <label for="nis">NIS</label>
+            <input type="text" name="input_nis" class="form-control form-control-sm"  id="nis" placeholder="NIS">
+          </div>
+
+          <!-- NAMA -->
+          <div class="form-group">
+            <label for="nama">NAMA</label>
+            <input type="text" name="input_nama" class="form-control form-control-sm"  id="nama" placeholder="Nama">
+          </div>
+
+          <!-- Jenis Kelamin -->
+          <div class="form-group">
+            <label>JENIS KELAMIN</label>
+            <select name="input_jenis_kelamin" class="form-control form-control-sm" id="jenis_kelamin">
+              <option value="">-- Jenis Kelamin --</option>
+              <option value="Laki-Laki">Laki-Laki</option>
+              <option value="Perempuan">Perempuan</option>
+            </select>
+          </div>
+
+          <!-- Telp -->
+          <div class="form-group">
+            <label for="input_telp">TELP</label>
+            <input type="text" name="input_telp" class="form-control form-control-sm" id="input_telp" placeholder="No Telephone">
+          </div>
+
+         <!-- alamat -->
+         <div class="form-group">
+           <label for="alamat">Alamat</label>
+           <textarea name="input_alamat" class="form-control" id="alamat" placeholder="Alamat"></textarea>
+         </div>
+       </form>
         </div>
         <div class="modal-footer">
           <!-- Loading Data Ketika di simpan -->
@@ -74,17 +110,39 @@
           </div>
 
           <!-- tombol simpan -->
-          <button type="button" class="btn btn-primary" id="tombol-simpan">Simpan</button>
+          <button type="button" class="btn btn-primary btn-sm" id="tombol-simpan">Simpan</button>
 
           <!-- tombol ubah -->
-          <button type="button" class="btn btn-primary" id="tombol-ubah">Ubah</button>
+          <button type="button" class="btn btn-primary btn-sm" id="tombol-ubah">Ubah</button>
 
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
 
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Modal untuk delete data -->
+  <!-- Modal delete -->
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Optional JavaScript -->
   <script src="assets/js/jquery-3.4.1.min.js"></script>
@@ -92,8 +150,5 @@
   <script src="assets/datatables/js/jquery.dataTables.min.js"></script>
   <script src="assets/datatables/js/dataTables.bootstrap4.min.js"></script>
   <script src="assets/js/custom.js"></script>
-  <script>
-  $("#table-view").DataTable();
-  </script>
 </body>
 </html>

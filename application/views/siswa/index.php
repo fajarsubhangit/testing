@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/fonts/css/fontawesome.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/fonts/css/brands.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/fonts/css/solid.min.css">
-
   <!-- Datatables -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/datatables/css/dataTables.bootstrap4.min.css">
   <title>Data Siswa</title>
@@ -36,7 +35,7 @@
   <div id="pesan-sukses"></div>
 
   <!-- Menampilkan tabel dari view.php -->
-  <div id="view" class="mt-3">
+  <div id="view" class="container-fluid table-responsive mt-3">
     <?php
     $this->load->view("siswa/tabel",$tabel);
      ?>
@@ -128,17 +127,19 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">
+          <span id="modal-title-delete"></span>
+        </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        Apakah anda yakin menghapus data ini ?
       </div>
       <div class="modal-footer">
+        <button type="button" id="hapus" class="btn btn-danger">Hapus</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -146,12 +147,9 @@
 
   <!-- Optional JavaScript -->
   <script src="assets/js/jquery-3.4.1.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/datatables/js/jquery.dataTables.min.js"></script>
   <script src="assets/datatables/js/dataTables.bootstrap4.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/custom.js"></script>
 </body>
 </html>
-<script type="text/javascript">
-            $("#table-view").DataTable();
-</script>

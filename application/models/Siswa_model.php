@@ -17,5 +17,11 @@ class Siswa_model extends CI_Model {
   public function insert($data) {
     $this->db->insert($this->table,$data);
   }
+
+  //hapus data
+  public function delete_data($id) {
+    $this->db->where("id",$id);
+    $this->db->delete($this->table);
+  }
 }
  ?>

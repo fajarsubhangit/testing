@@ -135,9 +135,16 @@
         </button>
       </div>
       <div class="modal-body">
+        <div id="pesan-error" class="alert alert-danger alert-dismissible fade show" role="alert"></div>
+
         Apakah anda yakin menghapus data ini ?
       </div>
       <div class="modal-footer">
+        <!-- Loading Data ketika di hapus -->
+        <div id="loading-hapus">
+          <strong>Sedang dihapus....</strong>
+          <img src="assets/loading.gif" alt="loading">
+        </div>
         <button type="button" id="hapus" class="btn btn-danger">Hapus</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>

@@ -84,20 +84,19 @@ class Siswa extends CI_Controller {
 
   //hapus data
   public function hapus_data($id) {
+    sleep("2");
+    $this->Siswa_model->delete_data($id);
     $this->data["tabel"] = $this->Siswa_model->get_all();
     $html = $this->load->view("siswa/tabel",$this->data,true);
-    if($this->Siswa_model->delete_data($id)) {
+
+
       $response = [
         "status" => "sukses",
-        "pesan" => "Data berhasil di tambahkan",
+        "pesan" => "Data berhasil di hapus",
         "html"  => $html
       ];
-    }else {
-      $response = [
-          "status" => "gagal",
-          "pesan" => "Data gagal di masukan"
-      ];
-    }
+
+    echo json_encode($response,JSON_PRETTY_PRINT);
   }
 
   //validation

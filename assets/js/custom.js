@@ -5,7 +5,7 @@ $(document).ready(function()
 
   $("#table-view").DataTable();
   //sembunyikan beberapa pesan
-  $("#pesan-sukses,#pesan-error,#loading-simpan,#loading-ubah").hide();
+  $("#pesan-sukses,#pesan-error,#loading-simpan,#loading-ubah,#loading-hapus").hide();
 
   //ketika tombol tambah data di klik
   $("#tombol-tambah-data").click(function()
@@ -119,23 +119,29 @@ $(document).ready(function()
     })
 
     $("#hapus").click(function() {
-      if(window.XMLHttpRequest) {
-        var request = new XMLHttpRequest();
-      }
-      else {
-        var request = new ActiveXObject("MICROSOFT.XMLHTTP");
-      }
-      var url = "siswa/hapus_data/"+id;
-      request.open("POST",url,true);
-      request.setRequestHeader("Content-type","application/x-form-www-urlencoded");
-      request.send();
+      $.ajax({
+        url: "siswa/hapus_data/"+id,
+        dataType: "json",
+        method: "POST",
+        beforeSend: function() {
+          $("#loading-hapus").show();
+        },
+        success: function(msg) {
+          console.log(msg);
+          if(msg.status === "sukses") {
+            $("#loading-hapus").hide();
+            $("#pesan-sukses").html(msg.pesan);
+            $("#pesan-sukses").fadeIn().delay(10000).fadeOut();
+            $("#pesan-sukses").addClass("container alert alert-success mt-2")
 
-      request.onreadystatechange = function() {
-        if(request.readyState === 4 && request.status === 200) {
-          var data = request.responseText;
-          console.log(data);
+            $("#view").html(msg.html);
+            $(".modal").hide();
+            $(".modal-backdrop").hide();
+            $("#table-view").DataTable();
+          }
+
         }
-      }
+      })
     })
 
 
